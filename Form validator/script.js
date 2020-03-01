@@ -59,6 +59,15 @@ function checkLength(input, min, max) {
   }
 }
 
+//Check Username
+function checkUsername(input) {
+  const usr = /^[0-9a-zA-Z]+$/;
+  if (usr.test(input.value)) {
+  } else {
+    showError(input, "Username can only contain letters or numbers");
+  }
+}
+
 //Check passwords match
 function checkPasswordMatch(input1, input2) {
   if (input1.value !== input2.value) {
@@ -79,4 +88,5 @@ form.addEventListener("submit", function(e) {
   checkLength(password2, 6, 25);
   checkEmail(email);
   checkPasswordMatch(password, password2);
+  checkUsername(username);
 });
